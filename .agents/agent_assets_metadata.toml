@@ -1,0 +1,44 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "HDyxu2dUKZvonOsggJiI_"
+uri = "file://artifacts/gorogly-girls/src/assets/hero-woman.png"
+type = "image"
+title = "hero fitness woman dark"
+
+[[generated]]
+id = "1tDfl5NdEQVNoX3jmxqlc"
+uri = "file://artifacts/gorogly-girls/src/assets/gym-service.png"
+type = "image"
+title = "luxury gym interior dark"
+
+[[generated]]
+id = "rWX2DGTvoHTOQ7uQjZX56"
+uri = "file://artifacts/gorogly-girls/src/assets/pilates-service.png"
+type = "image"
+title = "pilates reformer dark studio"
+
+[[generated]]
+id = "MsCmoQMy6-HY6NkzWMTwg"
+uri = "file://artifacts/gorogly-girls/src/assets/trainer-ekaterina.png"
+type = "image"
+title = "female pilates instructor portrait"
+
+[[generated]]
+id = "f_Rnfg65Hzm1zrujz2y-f"
+uri = "file://artifacts/gorogly-girls/src/assets/trainer-yana.png"
+type = "image"
+title = "female fitness trainer portrait"
+
+[[generated]]
+id = "uXnC6qi16PGhA93UV40rx"
+uri = "file://artifacts/gorogly-girls/src/assets/trainer-jahana.png"
+type = "image"
+title = "female pilates trainer warm smile"
+
+[[generated]]
+id = "Og9TcspNeu-5zRCJqxiMr"
+uri = "file://artifacts/gorogly-girls/src/assets/trainer-nadezhda.png"
+type = "image"
+title = "elegant fitness trainer portrait"
