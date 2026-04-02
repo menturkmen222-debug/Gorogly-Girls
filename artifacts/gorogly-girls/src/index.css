@@ -180,15 +180,28 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
   transform: translateY(-1px);
 }
 
-/* Hamburger */
+/* Hamburger — animates into X */
 .hamburger {
   display: none;
-  align-items: center; justify-content: center;
+  flex-direction: column; align-items: center; justify-content: center; gap: 5px;
   background: none; border: 1px solid rgba(233,30,140,0.25); cursor: pointer;
-  padding: 0.5rem; border-radius: 8px;
-  transition: border-color 0.3s;
+  padding: 0.55rem 0.6rem; border-radius: 8px; width: 40px; height: 40px;
+  transition: border-color 0.3s, background 0.3s;
 }
-.hamburger:hover { border-color: rgba(233,30,140,0.6); }
+.hamburger:hover { border-color: rgba(233,30,140,0.6); background: rgba(233,30,140,0.06); }
+.hamburger-bar {
+  display: block; width: 20px; height: 2px;
+  background: #fff; border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
+              opacity 0.25s ease,
+              width 0.3s ease;
+  transform-origin: center;
+}
+/* Open state — morph into X */
+.hamburger.is-open { border-color: rgba(233,30,140,0.55); background: rgba(233,30,140,0.1); }
+.hamburger.is-open .hamburger-bar.top { transform: translateY(7px) rotate(45deg); }
+.hamburger.is-open .hamburger-bar.mid { opacity: 0; transform: scaleX(0); }
+.hamburger.is-open .hamburger-bar.bot { transform: translateY(-7px) rotate(-45deg); }
 
 /* Mobile menu overlay */
 .mobile-menu-overlay {

@@ -503,8 +503,10 @@ export default function Home() {
             <span className="nav-cta-shimmer" />
             {t.nav.cta}
           </a>
-          <button className="hamburger" onClick={() => setMobileOpen(true)} aria-label="Menu">
-            <Menu size={22} color="white" />
+          <button className={`hamburger${mobileOpen ? ' is-open' : ''}`} onClick={() => setMobileOpen(o => !o)} aria-label="Menu">
+            <span className="hamburger-bar top" />
+            <span className="hamburger-bar mid" />
+            <span className="hamburger-bar bot" />
           </button>
         </div>
       </nav>
