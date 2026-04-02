@@ -426,16 +426,16 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
   position: absolute; inset: 0; z-index: 3;
   background:
     linear-gradient(to bottom,
-      rgba(8,6,8,0.55) 0%,
-      rgba(8,6,8,0.28) 8%,
-      rgba(8,6,8,0.12) 20%,
+      rgba(8,6,8,0.10) 0%,
+      rgba(8,6,8,0.08) 8%,
+      rgba(8,6,8,0.06) 20%,
       rgba(8,6,8,0.08) 45%,
       rgba(8,6,8,0.60) 70%,
       rgba(8,6,8,0.95) 88%,
       rgba(8,6,8,1.00) 100%
     ),
     linear-gradient(to right,
-      rgba(233,30,140,0.15) 0%,
+      rgba(233,30,140,0.12) 0%,
       transparent 55%
     );
 }
@@ -1366,6 +1366,17 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
 }
 @media (max-width: 768px) {
   .nav { padding: 0.85rem 1.25rem; }
+  .nav:not(.scrolled) {
+    background: linear-gradient(
+      180deg,
+      rgba(233,30,140,0.18) 0%,
+      rgba(8,6,8,0.28) 60%,
+      rgba(8,6,8,0.05) 100%
+    );
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 2px 32px rgba(233,30,140,0.10);
+  }
   .nav-cta { display: none; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .branches-grid { grid-template-columns: repeat(2, 1fr); }
