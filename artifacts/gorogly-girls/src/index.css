@@ -1300,11 +1300,11 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
   .hero-mobile-bg-overlay {
     background:
       linear-gradient(to bottom,
-        rgba(8,6,8,0.18) 0%,
-        rgba(8,6,8,0.04) 20%,
-        rgba(8,6,8,0.04) 44%,
-        rgba(8,6,8,0.55) 65%,
-        rgba(8,6,8,0.92) 82%,
+        rgba(8,6,8,0.55) 0%,
+        rgba(8,6,8,0.22) 18%,
+        rgba(8,6,8,0.10) 38%,
+        rgba(8,6,8,0.48) 60%,
+        rgba(8,6,8,0.88) 78%,
         rgba(8,6,8,1.00) 100%
       ) !important;
   }
@@ -1357,7 +1357,22 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
     -webkit-backdrop-filter: blur(8px);
   }
 
-  .hero-body { max-width: 100%; color: rgba(250,247,250,0.85); font-size: 0.96rem; line-height: 1.68; }
+  .hero-line {
+    -webkit-text-fill-color: #fff !important;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.5) !important;
+    background: none !important;
+    color: #fff !important;
+  }
+  .hero-body {
+    max-width: 100%;
+    color: rgba(250,247,250,0.92) !important;
+    font-size: 0.96rem;
+    line-height: 1.68;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.9) !important;
+  }
+  .hero-badge {
+    text-shadow: none;
+  }
   .hero-trust { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 0.5rem !important; }
 
   .services-grid { grid-template-columns: 1fr; }
@@ -1365,7 +1380,18 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  .nav { padding: 0.85rem 1.25rem; }
+  .nav {
+    padding: 0.85rem 1.25rem;
+    background: rgba(8,6,8,0.38) !important;
+    backdrop-filter: blur(22px) !important;
+    -webkit-backdrop-filter: blur(22px) !important;
+    box-shadow: none !important;
+  }
+  .nav.scrolled {
+    background: rgba(8,6,8,0.72) !important;
+    backdrop-filter: blur(28px) !important;
+    -webkit-backdrop-filter: blur(28px) !important;
+  }
   .nav-cta { display: none; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .branches-grid { grid-template-columns: repeat(2, 1fr); }
