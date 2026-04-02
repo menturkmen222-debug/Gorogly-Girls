@@ -1253,64 +1253,142 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
 
-  /* Hero: surat ýokarda bölünip görkezilýär, tekst aşakda */
+  /* ── MOBILE HERO: full-screen immersive ── */
   .hero {
     padding-top: 0;
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    min-height: 100svh;
     min-height: 100vh;
-    background: var(--bg);
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
   }
 
-  /* Surat blogy — ýokarky 52vh */
+  /* Background image fills the ENTIRE hero */
   .hero-mobile-bg {
     display: block;
-    position: relative !important;
-    inset: unset !important;
-    width: 100%;
-    height: 52vh;
-    min-height: 280px;
-    max-height: 440px;
-    flex-shrink: 0;
-    margin-top: 62px;
-    overflow: hidden;
-    border-radius: 0 0 28px 28px;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin-top: 0 !important;
+    border-radius: 0 !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    flex-shrink: unset !important;
+    z-index: 1;
   }
   .hero-mobile-bg-img {
-    object-position: 60% 18% !important;
-    animation: kenBurns 12s ease-out forwards;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 62% 10% !important;
+    animation: kenBurns 14s ease-out forwards;
   }
+
+  /* Cinematic overlay — dark at top (nav), clear in middle, deep at bottom (text) */
   .hero-mobile-bg-overlay {
     background:
       linear-gradient(to bottom,
-        rgba(8,6,8,0.30) 0%,
-        rgba(8,6,8,0.0)  20%,
-        rgba(8,6,8,0.0)  60%,
-        rgba(8,6,8,0.70) 88%,
+        rgba(8,6,8,0.72) 0%,
+        rgba(8,6,8,0.28) 16%,
+        rgba(8,6,8,0.06) 36%,
+        rgba(8,6,8,0.18) 55%,
+        rgba(8,6,8,0.72) 72%,
+        rgba(8,6,8,0.94) 86%,
         rgba(8,6,8,1.00) 100%
+      ),
+      linear-gradient(to right,
+        rgba(8,6,8,0.45) 0%,
+        transparent 65%
+      ),
+      linear-gradient(135deg,
+        rgba(233,30,140,0.12) 0%,
+        transparent 55%
       ) !important;
   }
 
-  /* Tekst bölümi — suratyň aşagynda */
+  /* Pink energy glow at the very bottom */
+  .hero-mobile-energy {
+    z-index: 5 !important;
+    height: 50% !important;
+    background: radial-gradient(ellipse at 40% 100%, rgba(233,30,140,0.40) 0%, rgba(233,30,140,0.14) 38%, transparent 68%) !important;
+  }
+
+  /* Orbs and scan light are shown */
+  .hero-mobile-bg::before {
+    width: 220px; height: 220px;
+    bottom: 30%; left: -50px;
+    background: radial-gradient(circle, rgba(233,30,140,0.50) 0%, transparent 70%);
+  }
+  .hero-mobile-bg::after {
+    width: 160px; height: 160px;
+    top: 22%; right: -30px;
+    background: radial-gradient(circle, rgba(233,30,140,0.38) 0%, transparent 70%);
+  }
+
+  /* Dot grid is visible on mobile */
+  .hero-dots {
+    display: block !important;
+    z-index: 2;
+    opacity: 0.35;
+  }
+  /* Hide desktop-only bg elements that break flex layout */
+  .hero-bg { display: none; }
+  .hero-nebula-1, .hero-nebula-2, .hero-nebula-3 { display: none; }
+
+  /* Content overlays bottom of screen */
   .hero-content {
     position: relative !important;
-    grid-template-columns: 1fr;
-    padding: 1.4rem clamp(1rem,5vw,2rem) 3rem;
-    min-height: auto;
-    flex: 1;
+    z-index: 10;
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: flex-start;
-    z-index: 2;
+    padding: 0 clamp(1.25rem, 6vw, 2rem) clamp(2.5rem, 7vh, 4rem);
+    min-height: 100svh;
+    min-height: 100vh;
+    width: 100%;
   }
 
-  /* Fon bezegi elementleri gizle (flex layout bozmaşy üçin) */
-  .hero-bg, .hero-dots, .hero-nebula-1, .hero-nebula-2, .hero-nebula-3 {
-    display: none;
+  .hero-right { display: none !important; }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    width: 100%;
   }
 
-  .hero-right { display: none; }
-  .hero-left { gap: 1rem; }
-  .hero-body { max-width: 100%; color: rgba(250,247,250,0.88); }
-  .hero-badge { background: rgba(233,30,140,0.18); }
+  /* Larger, punchier headline on mobile */
+  .hero-line {
+    font-size: clamp(4rem, 17vw, 7rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  .hero-badge {
+    background: rgba(233,30,140,0.22);
+    border-color: rgba(233,30,140,0.40);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .hero-body {
+    max-width: 100%;
+    color: rgba(250,247,250,0.86);
+    font-size: 0.97rem;
+    line-height: 1.7;
+  }
+
+  .hero-trust {
+    gap: 0.55rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Other layout fixes */
   .services-grid { grid-template-columns: 1fr; }
   .trainers-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -1333,7 +1411,9 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
   .branches-grid { grid-template-columns: 1fr; }
   .trainers-grid { grid-template-columns: 1fr 1fr; }
   .programs-grid { grid-template-columns: 1fr; }
-  .hero-btns { flex-direction: column; }
-  .hero-btn-primary, .hero-btn-secondary { justify-content: center; }
+  .hero-btns { flex-direction: column; gap: 0.75rem; }
+  .hero-btn-primary, .hero-btn-secondary { justify-content: center; width: 100%; }
   .footer-bottom { flex-direction: column; text-align: center; }
+  .hero-line { font-size: clamp(3.6rem, 18vw, 6rem) !important; }
+  .hero-trust { grid-template-columns: 1fr 1fr; gap: 0.45rem; }
 }
