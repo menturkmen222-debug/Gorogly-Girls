@@ -1366,7 +1366,7 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
 }
 @media (max-width: 768px) {
   .nav { padding: 0.85rem 1.25rem; }
-  .nav:not(.scrolled) {
+  .nav:not(.scrolled):not(.menu-open) {
     background: linear-gradient(
       180deg,
       rgba(233,30,140,0.18) 0%,
