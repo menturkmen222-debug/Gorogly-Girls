@@ -542,9 +542,14 @@ export default function Home() {
       {/* ===== HERO ===== */}
       <section id="hero" className="hero">
         <div className="hero-bg" />
+        <div className="hero-mobile-bg">
+          <img src={heroWoman} alt="" className="hero-mobile-bg-img" />
+          <div className="hero-mobile-bg-overlay" />
+        </div>
         <div className="hero-dots" />
         <div className="hero-nebula-1" />
         <div className="hero-nebula-2" />
+        <div className="hero-nebula-3" />
         <div className="hero-content">
           <div className="hero-left">
             <div className="hero-badge">
