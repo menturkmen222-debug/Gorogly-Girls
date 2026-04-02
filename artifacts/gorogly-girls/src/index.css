@@ -34,13 +34,21 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
 .font-montserrat { font-family: 'Montserrat', sans-serif; }
 
 /* ===== ANIMATIONS ===== */
-@keyframes nebula1   { 0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(5%,3%) scale(1.08)} }
-@keyframes nebula2   { 0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-4%,5%) scale(1.12)} }
-@keyframes floatCard { 0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)} }
-@keyframes pinkGlow  { 0%,100%{box-shadow:0 0 12px rgba(233,30,140,0.25)}50%{box-shadow:0 0 28px rgba(233,30,140,0.5)} }
-@keyframes shimmer   { 0%{left:-100%}100%{left:200%} }
-@keyframes fadeUp    { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none} }
-@keyframes rotateSlow{ from{transform:rotate(0deg)}to{transform:rotate(360deg)} }
+@keyframes nebula1    { 0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(5%,3%) scale(1.08)} }
+@keyframes nebula2    { 0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-4%,5%) scale(1.12)} }
+@keyframes floatCard  { 0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)} }
+@keyframes pinkGlow   { 0%,100%{box-shadow:0 0 12px rgba(233,30,140,0.25)}50%{box-shadow:0 0 28px rgba(233,30,140,0.5)} }
+@keyframes shimmer    { 0%{left:-100%}100%{left:200%} }
+@keyframes fadeUp     { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none} }
+@keyframes rotateSlow { from{transform:rotate(0deg)}to{transform:rotate(360deg)} }
+@keyframes kenBurns   { 0%{transform:scale(1.15) translateY(-2%)}100%{transform:scale(1.0) translateY(0)} }
+@keyframes floatOrb   { 0%,100%{transform:translateY(0) scale(1);opacity:0.6} 50%{transform:translateY(-30px) scale(1.1);opacity:0.9} }
+@keyframes floatOrb2  { 0%,100%{transform:translateY(0) scale(1.05);opacity:0.5} 50%{transform:translateY(20px) scale(0.95);opacity:0.8} }
+@keyframes pulseRing  { 0%{transform:scale(0.85);opacity:0.8} 100%{transform:scale(1.5);opacity:0} }
+@keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+@keyframes scanLight  { 0%{top:-20%}100%{top:120%} }
+@keyframes slideUp    { from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none} }
+@keyframes energyPulse{ 0%,100%{opacity:0.4;transform:scaleY(1)}50%{opacity:0.7;transform:scaleY(1.05)} }
 
 /* Reveal animations */
 .reveal, .reveal-left, .reveal-right {
@@ -298,14 +306,73 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
 /* Diagonal slash background */
 .diag-slash {
   position: absolute; pointer-events: none; z-index: 0;
-  top: -20%; right: -10%; width: 60%; height: 140%;
+  top: -20%; right: -10%; width: 70%; height: 140%;
   background: linear-gradient(
     -45deg,
-    transparent 45%,
-    rgba(var(--pink-rgb), 0.035) 45%,
-    rgba(var(--pink-rgb), 0.035) 55%,
-    transparent 55%
+    transparent 38%,
+    rgba(var(--pink-rgb), 0.055) 38%,
+    rgba(var(--pink-rgb), 0.055) 50%,
+    rgba(var(--pink-rgb), 0.025) 50%,
+    rgba(var(--pink-rgb), 0.025) 62%,
+    transparent 62%
   );
+}
+
+/* Rich section mesh overlay */
+.section-mesh {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(233,30,140,0.07) 0%, transparent 45%),
+    radial-gradient(ellipse at 90% 80%, rgba(233,30,140,0.05) 0%, transparent 40%);
+}
+
+/* Schedule background */
+.schedule-bg {
+  background:
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%);
+  position: relative;
+}
+.schedule-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(233,30,140,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(233,30,140,0.08) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+/* Programs background */
+.programs-section-bg {
+  background: linear-gradient(135deg, var(--surface) 0%, var(--bg2) 50%, var(--surface) 100%);
+  position: relative;
+}
+.programs-section-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 0% 50%, rgba(233,30,140,0.09) 0%, transparent 45%),
+    radial-gradient(ellipse at 100% 50%, rgba(233,30,140,0.06) 0%, transparent 40%),
+    repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 40px,
+      rgba(233,30,140,0.015) 40px,
+      rgba(233,30,140,0.015) 42px
+    );
+  pointer-events: none;
+}
+
+/* Testimonials background */
+.testimonials-section-bg {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 60%, var(--bg2) 100%);
+  position: relative;
+}
+.testimonials-section-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(233,30,140,0.07) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 /* ===== HERO ===== */
@@ -319,27 +386,61 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
 /* Mobile background image — hidden on desktop */
 .hero-mobile-bg {
   display: none;
-  position: absolute; inset: 0; z-index: 0;
+  position: absolute; inset: 0; z-index: 1;
   overflow: hidden;
+}
+.hero-mobile-bg::before {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(233,30,140,0.55) 0%, transparent 70%);
+  bottom: 25%; left: -40px; z-index: 2;
+  animation: floatOrb 6s ease-in-out infinite;
+  pointer-events: none;
+}
+.hero-mobile-bg::after {
+  content: '';
+  position: absolute;
+  width: 140px; height: 140px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(233,30,140,0.40) 0%, transparent 70%);
+  top: 18%; right: -20px; z-index: 2;
+  animation: floatOrb2 8s ease-in-out infinite;
+  pointer-events: none;
 }
 .hero-mobile-bg-img {
   width: 100%; height: 100%;
-  object-fit: cover; object-position: 60% 40%;
+  object-fit: cover; object-position: 55% 30%;
+  animation: kenBurns 10s ease-out forwards;
 }
 .hero-mobile-bg-overlay {
-  position: absolute; inset: 0;
+  position: absolute; inset: 0; z-index: 3;
   background:
     linear-gradient(to bottom,
-      rgba(8,6,8,0.15) 0%,
-      rgba(8,6,8,0.10) 25%,
-      rgba(8,6,8,0.45) 55%,
-      rgba(8,6,8,0.88) 78%,
+      rgba(8,6,8,0.30) 0%,
+      rgba(8,6,8,0.05) 20%,
+      rgba(8,6,8,0.05) 40%,
+      rgba(8,6,8,0.55) 62%,
+      rgba(8,6,8,0.92) 80%,
       rgba(8,6,8,1.00) 100%
     ),
-    linear-gradient(135deg,
-      rgba(233,30,140,0.22) 0%,
-      transparent 50%
+    linear-gradient(to right,
+      rgba(233,30,140,0.20) 0%,
+      transparent 45%
     );
+}
+/* Scan light effect on mobile hero */
+.hero-mobile-bg-scan {
+  position: absolute; left: 0; right: 0; height: 2px; z-index: 4;
+  background: linear-gradient(to right, transparent, rgba(233,30,140,0.6), transparent);
+  animation: scanLight 5s linear infinite;
+  pointer-events: none;
+}
+/* Pink energy glow at bottom */
+.hero-mobile-energy {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 40%; z-index: 4;
+  background: radial-gradient(ellipse at 50% 100%, rgba(233,30,140,0.35) 0%, rgba(233,30,140,0.10) 40%, transparent 70%);
+  animation: energyPulse 3s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .hero-dots {
@@ -487,10 +588,21 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
 
 /* ===== STATS STRIP ===== */
 .stats-strip {
-  background: linear-gradient(to right, var(--bg2), var(--surface), var(--bg2));
-  border-top: 1px solid rgba(233,30,140,0.2);
-  border-bottom: 1px solid rgba(233,30,140,0.2);
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--bg2) 0%, var(--surface) 50%, var(--bg2) 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+  border-top: 1px solid rgba(233,30,140,0.25);
+  border-bottom: 1px solid rgba(233,30,140,0.25);
   padding: 2.5rem clamp(1rem, 5vw, 3rem);
+}
+.stats-strip::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(233,30,140,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(233,30,140,0.08) 0%, transparent 50%);
+  pointer-events: none;
 }
 .stats-grid {
   max-width: 1000px; margin: 0 auto;

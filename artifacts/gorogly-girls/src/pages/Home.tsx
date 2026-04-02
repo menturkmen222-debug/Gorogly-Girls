@@ -542,6 +542,8 @@ export default function Home() {
         <div className="hero-mobile-bg">
           <img src={heroWoman} alt="" className="hero-mobile-bg-img" />
           <div className="hero-mobile-bg-overlay" />
+          <div className="hero-mobile-bg-scan" />
+          <div className="hero-mobile-energy" />
         </div>
         <div className="hero-dots" />
         <div className="hero-nebula-1" />
@@ -839,7 +841,7 @@ export default function Home() {
       </section>
 
       {/* ===== TRAINERS ===== */}
-      <div className="section-full" style={{ background: 'var(--bg2)' }}>
+      <div className="section-full programs-section-bg">
         <div className="section">
           <div className="diag-slash" />
           <div style={{ position: 'relative', zIndex: 1 }}>
@@ -880,7 +882,7 @@ export default function Home() {
       </div>
 
       {/* ===== PROGRAMS ===== */}
-      <section>
+      <section className="programs-section-bg">
         <div className="section">
           <div className="diag-slash" />
           <div style={{ position: 'relative', zIndex: 1 }}>
@@ -976,7 +978,7 @@ export default function Home() {
       </div>
 
       {/* ===== TESTIMONIALS ===== */}
-      <section>
+      <section className="testimonials-section-bg">
         <div className="section">
           <div className="diag-slash" />
           <div style={{ position: 'relative', zIndex: 1 }}>
