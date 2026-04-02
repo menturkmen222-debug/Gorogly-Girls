@@ -78,22 +78,19 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
 }
 
 /* Logo */
-.logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
-.logo-circle {
+.logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; flex-shrink: 0; }
+.logo-img {
   width: 52px; height: 52px;
   border-radius: 50%;
-  background: linear-gradient(145deg, #E91E8C, #B5156E);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  box-shadow: 0 0 24px rgba(233,30,140,0.45), inset 0 1px 0 rgba(255,255,255,0.15);
-  line-height: 1; gap: 1px;
+  object-fit: cover;
   flex-shrink: 0;
-  transition: box-shadow 0.3s;
+  transition: filter 0.3s, transform 0.3s;
+  filter: drop-shadow(0 0 8px rgba(233,30,140,0.35));
 }
-.logo:hover .logo-circle { box-shadow: 0 0 36px rgba(233,30,140,0.65), inset 0 1px 0 rgba(255,255,255,0.15); }
-.logo-go    { font: 900 9px/1 'Montserrat',sans-serif; color:#fff; }
-.logo-rogly { font: 900 8px/1 'Montserrat',sans-serif; color:#fff; }
-.logo-girls { font: 900 7px/1 'Montserrat',sans-serif; color:rgba(255,255,255,0.85); }
+.logo:hover .logo-img {
+  filter: drop-shadow(0 0 16px rgba(233,30,140,0.6));
+  transform: scale(1.05);
+}
 .logo-text { font: 700 14px/1.2 'Barlow Condensed',sans-serif; color: var(--text); letter-spacing: 0.05em; }
 .logo-text span { display: block; font-size: 10px; color: var(--pink); font-weight: 600; letter-spacing: 0.12em; }
 

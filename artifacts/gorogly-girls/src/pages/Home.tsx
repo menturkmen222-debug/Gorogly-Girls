@@ -7,6 +7,7 @@ import {
   Shield, Heart, Zap, Activity, Timer, Crown
 } from 'lucide-react';
 
+import realLogo from '@/assets/logo.png';
 import heroWoman from '@/assets/hero-woman.png';
 import gymImage from '@/assets/gym-service.png';
 import pilatesImage from '@/assets/pilates-service.png';
@@ -440,12 +441,6 @@ export default function Home() {
 
   useEffect(() => {
     document.documentElement.lang = lang;
-    const svgFav = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E91E8C"/><text x="50%" y="68%" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="18" font-weight="900" fill="white">G</text></svg>`;
-    const blob = new Blob([svgFav], { type: 'image/svg+xml' });
-    const url = URL.createObjectURL(blob);
-    let link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null;
-    if (!link) { link = document.createElement('link'); link.rel = 'icon'; document.head.appendChild(link); }
-    link.href = url;
   }, [lang]);
 
   useEffect(() => {
@@ -476,11 +471,7 @@ export default function Home() {
 
   const logoEl = (
     <a href="#hero" className="logo" onClick={(e) => { e.preventDefault(); scrollTo('hero'); }}>
-      <div className="logo-circle">
-        <span className="logo-go">GO</span>
-        <span className="logo-rogly">ROGLY</span>
-        <span className="logo-girls">GIRLS</span>
-      </div>
+      <img src={realLogo} alt="Görogly Girls" className="logo-img" />
       <div className="logo-text">GÖROGLY<span>GIRLS FITNESS CLUB</span></div>
     </a>
   );
@@ -1134,11 +1125,7 @@ export default function Home() {
           <div className="footer-grid">
             <div className="footer-brand">
               <a href="#hero" className="footer-logo" onClick={(e) => { e.preventDefault(); scrollTo('hero'); }}>
-                <div className="logo-circle">
-                  <span className="logo-go">GO</span>
-                  <span className="logo-rogly">ROGLY</span>
-                  <span className="logo-girls">GIRLS</span>
-                </div>
+                <img src={realLogo} alt="Görogly Girls" className="logo-img" />
                 <div className="logo-text">GÖROGLY<span>GIRLS</span></div>
               </a>
               <p className="footer-tagline">{t.footer.tagline}</p>
