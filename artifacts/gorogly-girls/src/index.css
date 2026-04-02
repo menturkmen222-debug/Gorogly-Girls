@@ -61,9 +61,29 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
   opacity: 1; transform: none;
 }
 
-/* ===== PAGE WRAP ===== */
-.page-wrap { opacity: 0; transition: opacity 0.7s ease; }
+/* ===== PAGE WRAP & HERO ENTRANCE ===== */
+.page-wrap { opacity: 0; transition: opacity 0.55s ease; }
 .page-wrap.page-entered { opacity: 1; }
+
+@keyframes heroSlideUp   { from { opacity:0; transform:translateY(36px); } to { opacity:1; transform:none; } }
+@keyframes heroSlideLeft { from { opacity:0; transform:translateX(-48px); } to { opacity:1; transform:none; } }
+@keyframes heroPop       { from { opacity:0; transform:scale(0.82); } to { opacity:1; transform:scale(1); } }
+@keyframes heroFadeIn    { from { opacity:0; } to { opacity:1; } }
+@keyframes heroBgZoom    { from { transform:scale(1.12); } to { transform:scale(1); } }
+
+.page-entered .hero-badge          { animation: heroSlideUp   0.6s cubic-bezier(0.16,1,0.3,1) 0.05s both; }
+.page-entered .hero-h1-wrap:nth-child(1) .hero-line { animation: heroSlideLeft 0.65s cubic-bezier(0.16,1,0.3,1) 0.18s both; }
+.page-entered .hero-h1-wrap:nth-child(2) .hero-line { animation: heroSlideLeft 0.65s cubic-bezier(0.16,1,0.3,1) 0.30s both; }
+.page-entered .hero-h1-wrap:nth-child(3) .hero-line { animation: heroSlideLeft 0.65s cubic-bezier(0.16,1,0.3,1) 0.42s both; }
+.page-entered .hero-divider        { animation: heroFadeIn    0.6s ease 0.52s both; }
+.page-entered .hero-body           { animation: heroSlideUp   0.6s ease 0.58s both; }
+.page-entered .hero-btns           { animation: heroSlideUp   0.6s ease 0.70s both; }
+.page-entered .hero-trust          { animation: heroSlideUp   0.5s ease 0.82s both; }
+.page-entered .hero-woman-img      { animation: heroBgZoom    1.2s cubic-bezier(0.16,1,0.3,1) 0.1s both; }
+.page-entered .hero-mobile-bg-img  { animation: heroBgZoom    1.4s cubic-bezier(0.16,1,0.3,1) 0s both; }
+.page-entered .hero-float-card:nth-child(1) { animation: heroPop 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.85s both; }
+.page-entered .hero-float-card:nth-child(2) { animation: heroPop 0.5s cubic-bezier(0.34,1.56,0.64,1) 1.0s  both; }
+.page-entered .hero-float-card:nth-child(3) { animation: heroPop 0.5s cubic-bezier(0.34,1.56,0.64,1) 1.15s both; }
 
 /* ===== SPLASH SCREEN ===== */
 @keyframes splashLogoIn {
@@ -76,8 +96,8 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
   50%      { transform: scale(1.4); opacity: 1;   }
 }
 @keyframes splashRingPulse {
-  0%   { transform: scale(0.5); opacity: 0.9; }
-  100% { transform: scale(2.8); opacity: 0;   }
+  0%   { transform: translate(-50%,-50%) scale(0.5); opacity: 0.9; }
+  100% { transform: translate(-50%,-50%) scale(2.8); opacity: 0;   }
 }
 @keyframes splashBrandIn {
   0%   { opacity: 0; transform: translateY(30px) skewX(-4deg); letter-spacing: 0.35em; }
@@ -116,35 +136,41 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
 .splash-particle {
   position: absolute;
   top: 50%; left: 50%;
-  width: 5px; height: 5px; border-radius: 50%;
+  width: var(--sz, 5px); height: var(--sz, 5px); border-radius: 50%;
   background: var(--pink);
   animation: splashParticle 2.4s ease-out both;
   box-shadow: 0 0 6px var(--pink);
 }
-.splash-particle:nth-child(3n)   { background: #ff6bb5; width: 4px; height: 4px; }
-.splash-particle:nth-child(3n+1) { background: #fff; width: 3px; height: 3px; }
-
-.splash-rings { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-.splash-ring {
-  position: absolute; border-radius: 50%;
-  border: 2px solid rgba(233,30,140,0.7);
-}
-.splash-ring-1 { width: 160px; height: 160px; animation: splashRingPulse 2.2s ease-out 0.5s both; }
-.splash-ring-2 { width: 160px; height: 160px; animation: splashRingPulse 2.2s ease-out 0.85s both; border-color: rgba(255,107,181,0.5); }
-.splash-ring-3 { width: 160px; height: 160px; animation: splashRingPulse 2.2s ease-out 1.2s both; border-color: rgba(233,30,140,0.3); }
+.splash-particle:nth-child(3n)   { background: #ff6bb5; }
+.splash-particle:nth-child(3n+1) { background: #fff; }
 
 .splash-center {
   position: relative; z-index: 2;
   display: flex; flex-direction: column; align-items: center; gap: 1.8rem;
 }
-.splash-logo-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
+.splash-logo-wrap {
+  position: relative;
+  width: 160px; height: 160px;
+  display: flex; align-items: center; justify-content: center;
+}
 .splash-logo-glow {
-  position: absolute; width: 160px; height: 160px; border-radius: 50%;
+  position: absolute; inset: -30px; border-radius: 50%;
   background: radial-gradient(circle, rgba(233,30,140,0.55) 0%, transparent 70%);
   animation: splashGlowPulse 1.8s ease-in-out 0.4s infinite;
+  pointer-events: none;
 }
+.splash-ring {
+  position: absolute; border-radius: 50%;
+  border: 2px solid rgba(233,30,140,0.7);
+  width: 160px; height: 160px;
+  top: 50%; left: 50%;
+  pointer-events: none;
+}
+.splash-ring-1 { animation: splashRingPulse 2.2s ease-out 0.45s both; }
+.splash-ring-2 { animation: splashRingPulse 2.2s ease-out 0.80s both; border-color: rgba(255,107,181,0.5); }
+.splash-ring-3 { animation: splashRingPulse 2.2s ease-out 1.15s both; border-color: rgba(233,30,140,0.3); }
 .splash-logo {
-  width: 110px; height: 110px; border-radius: 50%;
+  width: 120px; height: 120px; border-radius: 50%;
   object-fit: cover; position: relative; z-index: 1;
   animation: splashLogoIn 0.9s cubic-bezier(0.34,1.56,0.64,1) 0.1s both;
   box-shadow: 0 0 0 3px rgba(233,30,140,0.35), 0 0 60px rgba(233,30,140,0.4);
@@ -619,10 +645,10 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
   width: fit-content;
   animation: pinkGlow 3s ease-in-out infinite;
 }
-.hero-h1-wrap { overflow: hidden; }
+.hero-h1-wrap { overflow: visible; }
 .hero-line {
   display: block;
-  font: 900 clamp(3rem, 13vw, 8rem)/1.0 'Barlow Condensed',sans-serif;
+  font: 900 clamp(2.4rem, 8.5vw, 6.5rem)/1.0 'Barlow Condensed',sans-serif;
   text-transform: uppercase; letter-spacing: -0.02em;
   background: linear-gradient(135deg, var(--text-bright) 60%, var(--pink-light));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -1468,7 +1494,7 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
   .hero-left { display: flex; flex-direction: column; gap: 1.1rem; width: 100%; }
 
   .hero-line {
-    font-size: clamp(4rem, 17vw, 6.5rem) !important;
+    font-size: clamp(2.8rem, 13.5vw, 5rem) !important;
     line-height: 0.95 !important;
     letter-spacing: -0.03em !important;
   }

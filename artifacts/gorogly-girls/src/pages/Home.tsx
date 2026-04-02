@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 
 import realLogo from '@/assets/logo.png';
-import heroWoman from '@/assets/hero-woman.png';
+import heroWoman from '@/assets/hero-woman.jpg';
 import gymImage from '@/assets/gym-service.png';
 import pilatesImage from '@/assets/pilates-service.png';
 import trainerEkaterina from '@/assets/trainer-ekaterina.png';
