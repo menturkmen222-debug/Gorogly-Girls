@@ -1263,23 +1263,22 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
 
-  /* ── MOBILE HERO: full-screen, no animation, no black gap ── */
+  /* ── MOBILE HERO ── */
   .hero {
-    padding-top: 0;
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-    background: #080608;
+    padding-top: 0 !important;
+    position: relative !important;
+    display: block !important;
+    height: 100svh !important;
+    height: 100vh !important;
+    min-height: 580px !important;
+    overflow: hidden !important;
+    background: #080608 !important;
   }
 
-  /* Full-screen background image — clips exactly to hero edges */
   .hero-mobile-bg {
     display: block !important;
     position: absolute !important;
     top: 0 !important; left: 0 !important;
-    right: 0 !important; bottom: 0 !important;
     width: 100% !important; height: 100% !important;
     margin: 0 !important; padding: 0 !important;
     border-radius: 0 !important;
@@ -1287,7 +1286,6 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
     z-index: 1 !important;
   }
 
-  /* Image: no animation, no transform, pure cover */
   .hero-mobile-bg-img {
     display: block !important;
     position: absolute !important;
@@ -1299,62 +1297,53 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
     transform: none !important;
   }
 
-  /* Overlay — transparent at top, deep at bottom for text readability */
   .hero-mobile-bg-overlay {
     background:
       linear-gradient(to bottom,
-        rgba(8,6,8,0.20) 0%,
-        rgba(8,6,8,0.05) 18%,
-        rgba(8,6,8,0.05) 42%,
+        rgba(8,6,8,0.18) 0%,
+        rgba(8,6,8,0.04) 20%,
+        rgba(8,6,8,0.04) 44%,
         rgba(8,6,8,0.55) 65%,
         rgba(8,6,8,0.92) 82%,
         rgba(8,6,8,1.00) 100%
       ) !important;
   }
 
-  /* Pink energy glow at bottom */
   .hero-mobile-energy {
     z-index: 5 !important;
     height: 45% !important;
-    background: radial-gradient(ellipse at 38% 100%, rgba(233,30,140,0.35) 0%, rgba(233,30,140,0.10) 42%, transparent 68%) !important;
+    background: radial-gradient(ellipse at 38% 100%, rgba(233,30,140,0.32) 0%, rgba(233,30,140,0.08) 42%, transparent 68%) !important;
   }
 
-  /* Dot grid subtle texture */
   .hero-dots {
     display: block !important;
+    position: absolute !important;
     z-index: 2 !important;
-    opacity: 0.25 !important;
-    animation: none;
+    opacity: 0.22 !important;
+    animation: none !important;
   }
 
-  /* Hide unused desktop background elements */
   .hero-bg { display: none !important; }
   .hero-nebula-1, .hero-nebula-2, .hero-nebula-3 { display: none !important; }
 
-  /* Content pinned to the bottom */
   .hero-content {
-    position: relative !important;
+    position: absolute !important;
+    bottom: 0 !important; left: 0 !important; right: 0 !important;
+    top: auto !important;
     z-index: 10 !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-end !important;
     align-items: flex-start !important;
-    grid-template-columns: 1fr !important;
     width: 100% !important;
-    min-height: 100vh !important;
+    min-height: unset !important;
     padding: 0 clamp(1.25rem, 6vw, 2rem) clamp(2.5rem, 8vh, 4rem) !important;
+    margin: 0 auto !important;
+    max-width: 1200px !important;
   }
 
   .hero-right { display: none !important; }
+  .hero-left { display: flex; flex-direction: column; gap: 1.1rem; width: 100%; }
 
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    gap: 1.1rem;
-    width: 100%;
-  }
-
-  /* Bold headline */
   .hero-line {
     font-size: clamp(4rem, 17vw, 6.5rem) !important;
     line-height: 0.95 !important;
@@ -1368,20 +1357,9 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
     -webkit-backdrop-filter: blur(8px);
   }
 
-  .hero-body {
-    max-width: 100%;
-    color: rgba(250,247,250,0.85);
-    font-size: 0.96rem;
-    line-height: 1.68;
-  }
+  .hero-body { max-width: 100%; color: rgba(250,247,250,0.85); font-size: 0.96rem; line-height: 1.68; }
+  .hero-trust { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 0.5rem !important; }
 
-  .hero-trust {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 0.5rem !important;
-  }
-
-  /* Other layout fixes */
   .services-grid { grid-template-columns: 1fr; }
   .trainers-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
