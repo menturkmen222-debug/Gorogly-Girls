@@ -479,7 +479,7 @@ export default function Home() {
   return (
     <>
       {/* ===== NAV ===== */}
-      <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
+      <nav className={`nav${scrolled ? ' scrolled' : ''}${mobileOpen ? ' menu-open' : ''}`}>
         <div className="nav-ornament-line" />
         {logoEl}
         <ul className="nav-links">
