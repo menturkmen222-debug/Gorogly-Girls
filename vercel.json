@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm install && PORT=3000 BASE_PATH=/ pnpm --filter @workspace/gorogly-girls run build",
+  "buildCommand": "PORT=3000 BASE_PATH=/ pnpm --filter @workspace/gorogly-girls run build",
   "outputDirectory": "artifacts/gorogly-girls/dist/public",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
