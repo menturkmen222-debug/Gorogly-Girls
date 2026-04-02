@@ -514,9 +514,6 @@ export default function Home() {
       {/* ===== MOBILE MENU ===== */}
       <div className={`mobile-menu-overlay${mobileOpen ? ' open' : ''}`} onClick={() => setMobileOpen(false)} />
       <div className={`mobile-menu${mobileOpen ? ' open' : ''}`}>
-        <button className="mobile-close" onClick={() => setMobileOpen(false)}>
-          <X size={24} />
-        </button>
         <div className="mobile-logo">{logoEl}</div>
         <ul className="mobile-nav-links">
           {navLinks.map(([id, key]) => (
