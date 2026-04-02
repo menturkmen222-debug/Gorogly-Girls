@@ -648,7 +648,7 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
 .hero-h1-wrap { overflow: visible; }
 .hero-line {
   display: block;
-  font: 900 clamp(2.4rem, 8.5vw, 6.5rem)/1.0 'Barlow Condensed',sans-serif;
+  font: 900 clamp(2.2rem, 5vw, 4.2rem)/1.0 'Barlow Condensed',sans-serif;
   text-transform: uppercase; letter-spacing: -0.02em;
   background: linear-gradient(135deg, var(--text-bright) 60%, var(--pink-light));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -1494,8 +1494,8 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
   .hero-left { display: flex; flex-direction: column; gap: 1.1rem; width: 100%; }
 
   .hero-line {
-    font-size: clamp(2.8rem, 13.5vw, 5rem) !important;
-    line-height: 0.95 !important;
+    font-size: clamp(1.8rem, 9.8vw, 3.2rem) !important;
+    line-height: 0.93 !important;
     letter-spacing: -0.03em !important;
   }
 
@@ -1551,6 +1551,6 @@ h1, h2, h3, .display { font-family: 'Barlow Condensed', sans-serif; }
   .hero-btns { flex-direction: column; gap: 0.75rem; }
   .hero-btn-primary, .hero-btn-secondary { justify-content: center; width: 100%; }
   .footer-bottom { flex-direction: column; text-align: center; }
-  .hero-line { font-size: clamp(3.6rem, 18vw, 6rem) !important; }
+  .hero-line { font-size: clamp(1.7rem, 9.2vw, 3rem) !important; }
   .hero-trust { grid-template-columns: 1fr 1fr; gap: 0.45rem; }
 }
