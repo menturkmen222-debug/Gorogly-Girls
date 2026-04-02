@@ -510,6 +510,7 @@ export default function Home() {
       </nav>
 
       {/* ===== MOBILE MENU ===== */}
+      <div className={`mobile-menu-overlay${mobileOpen ? ' open' : ''}`} onClick={() => setMobileOpen(false)} />
       <div className={`mobile-menu${mobileOpen ? ' open' : ''}`}>
         <button className="mobile-close" onClick={() => setMobileOpen(false)}>
           <X size={24} />
@@ -517,7 +518,7 @@ export default function Home() {
         <div className="mobile-logo">{logoEl}</div>
         <ul className="mobile-nav-links">
           {navLinks.map(([id, key]) => (
-            <li key={key}><a href={`#${id}`} onClick={(e) => { e.preventDefault(); scrollTo(id); }}>
+            <li key={key}><a href={`#${id}`} onClick={(e) => { e.preventDefault(); scrollTo(id); setMobileOpen(false); }}>
               <ArrowRight size={14} style={{ marginRight: '0.5rem', opacity: 0.6 }} />
               {t.nav[key]}
             </a></li>
